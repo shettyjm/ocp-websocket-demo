@@ -12,10 +12,14 @@ const io = socketIo(server);
 // Redis setup
 const redisHost = process.env.REDIS_HOST || 'localhost';
 const redisPort = process.env.REDIS_PORT || 6379;
+const redisUser = process.env.REDIS_USER || 'default'
+const redisPassword = process.env.REDIS_PASSWORD || 'SdmUDJb5cgYarByh'
 
 const redisClient = redis.createClient({
   host: redisHost,
   port: redisPort,
+  username: redisUser,
+  password: redisPassword,
 });
 
 const redisAdapter = socketIoRedis({
